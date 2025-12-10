@@ -1,0 +1,202 @@
+{
+    "lv": {
+        "kemeru-purvs": {
+            "title": "Lielais Ķemeru Purvs",
+            "subtitle": "Mistiska pastaiga uz koka laipas",
+            "duration": "3-4 stundas",
+            "difficulty": "Viegls",
+            "price": "20 EUR",
+            "description": "Iepazīsti purva ekosistēmu... (Pilns apraksts LV)"
+        },
+        "gauja-senleja": {
+            "title": "Gaujas Senlejas Noslēpumi",
+            "subtitle": "Smilšakmens klintis un alas",
+            "duration": "6-7 stundas",
+            "difficulty": "Vidējs",
+            "price": "25 EUR",
+            "description": "Pārgājiens gar Gaujas krastiem, apmeklējot Sietiņiezi... (Pilns apraksts LV)"
+        },
+        "raznas-ezers": {
+            "title": "Rāznas Ezera Dabas Taka",
+            "subtitle": "Latgales jūras miers",
+            "duration": "2-3 stundas",
+            "difficulty": "Viegls",
+            "price": "15 EUR",
+            "description": "Viegla pastaiga gar Latgales lielākā ezera krastiem... (Pilns apraksts LV)"
+        },
+        "pieejas-kapas": {
+            "title": "Piejūras Kāpas Un Mežu Taka",
+            "subtitle": "Piejūras flora un dzintaru meklēšana",
+            "duration": "4-5 stundas",
+            "difficulty": "Vidējs",
+            "price": "20 EUR",
+            "description": "Iepazīsti unikālo piekrastes floru un faunu Jūrmalas dabas parkā... (Pilns apraksts LV)"
+        },
+        "versu-purvs": {
+            "title": "Vēršu Purvs: Putnu Novērošanas Ekspress",
+            "subtitle": "Autentiska purva pieredze un putni",
+            "duration": "5-6 stundas",
+            "difficulty": "Vidējs",
+            "price": "20 EUR",
+            "description": "Dziļāka purva pieredze mazāk zināmās takās. Novēro putnus no torņiem... (Pilns apraksts LV)"
+        },
+        "sliteres-dizmezi": {
+            "title": "Slīteres Nacionālais Parks: Dižmeži",
+            "subtitle": "Seno Baltijas ledus ezera krasts",
+            "duration": "7-8 stundas",
+            "difficulty": "Grūts",
+            "price": "25 EUR",
+            "description": "Ilgāks, grūtāks pārgājiens pa Slīteres Zilo kalnu krauju un neaiztiktu mežu... (Pilns apraksts LV)"
+        }
+    },
+    "en": {
+        "kemeru-purvs": {
+            "title": "Great Ķemeri Bog",
+            "subtitle": "Mystical boardwalk walk at sunrise",
+            "duration": "3-4 hours",
+            "difficulty": "Easy",
+            "price": "20 EUR",
+            "description": "Explore the bog ecosystem... (Full description EN)"
+        },
+        "gauja-senleja": {
+            "title": "Gauja River Valley Secrets",
+            "subtitle": "Sandstone cliffs and caves",
+            "duration": "6-7 hours",
+            "difficulty": "Medium",
+            "price": "25 EUR",
+            "description": "Hike along the Gauja riverbanks, visiting Sietiņiezis and Gūmaņa Caves... (Full description EN)"
+        },
+        "raznas-ezers": {
+            "title": "Rāzna Lake Nature Trail",
+            "subtitle": "The peace of Latgale's sea",
+            "duration": "2-3 hours",
+            "difficulty": "Easy",
+            "price": "15 EUR",
+            "description": "A gentle walk along the shores of Rāzna – Latgale's largest lake... (Full description EN)"
+        },
+        "pieejas-kapas": {
+            "title": "Coastal Dunes and Forest Trail",
+            "subtitle": "Coastal flora and amber hunting",
+            "duration": "4-5 hours",
+            "difficulty": "Medium",
+            "price": "20 EUR",
+            "description": "Discover the unique coastal flora and fauna in Jūrmala Nature Park... (Full description EN)"
+        },
+        "versu-purvs": {
+            "title": "Vēršu Bog: Bird Observation Express",
+            "subtitle": "Authentic bog experience and birdwatching",
+            "duration": "5-6 hours",
+            "difficulty": "Medium",
+            "price": "20 EUR",
+            "description": "Deeper bog experience on lesser-known trails. Observe birds from towers... (Full description EN)"
+        },
+        "sliteres-dizmezi": {
+            "title": "Slītere National Park: Old-Growth Forests",
+            "subtitle": "Ancient Baltic Ice Lake shore",
+            "duration": "7-8 hours",
+            "difficulty": "Hard",
+            "price": "25 EUR",
+            "description": "A longer, harder hike along the Slītere Blue Hills cliff and an untouched forest... (Full description EN)"
+        }
+    },
+    "et": {
+        "kemeru-purvs": {
+            "title": "Suur Kemeri Soo",
+            "subtitle": "Müstiline laudtee matk päikesetõusul",
+            "duration": "3-4 tundi",
+            "difficulty": "Kerge",
+            "price": "20 EUR",
+            "description": "Avasta soode ökosüsteem... (Täielik kirjeldus ET)"
+        },
+        "gauja-senleja": {
+            "title": "Gauja Oru Saladused",
+            "subtitle": "Liivakivikaljud ja koopad",
+            "duration": "6-7 tundi",
+            "difficulty": "Keskmine",
+            "price": "25 EUR",
+            "description": "Matk mööda Gauja kaldaid, külastades Sietiņiezise kivi ja Gūmaņise koopaid... (Täielik kirjeldus ET)"
+        },
+        "raznas-ezers": {
+            "title": "Rāzna Järve Loodusrada",
+            "subtitle": "Latgale mere rahu",
+            "duration": "2-3 tundi",
+            "difficulty": "Kerge",
+            "price": "15 EUR",
+            "description": "Kerge jalutuskäik mööda Latgale suurima järve kaldaid... (Täielik kirjeldus ET)"
+        },
+        "pieejas-kapas": {
+            "title": "Ranniku Luidete ja Metsarada",
+            "subtitle": "Ranniku taimestik ja merevaigujaht",
+            "duration": "4-5 tundi",
+            "difficulty": "Keskmine",
+            "price": "20 EUR",
+            "description": "Avasta ainulaadne ranniku taimestik ja loomastik Jūrmala looduspargis... (Täielik kirjeldus ET)"
+        },
+        "versu-purvs": {
+            "title": "Vēršu Soo: Linnuvaatluse Ekpress",
+            "subtitle": "Autentne sookogemus ja linnuvaatlus",
+            "duration": "5-6 tundi",
+            "difficulty": "Keskmine",
+            "price": "20 EUR",
+            "description": "Sügavam sookogemus vähemtuntud radadel. Vaatle linde tornidest... (Täielik kirjeldus ET)"
+        },
+        "sliteres-dizmezi": {
+            "title": "Slītere Rahvuspark: Iidmetsad",
+            "subtitle": "Iidne Balti Jääjärve kallas",
+            "duration": "7-8 tundi",
+            "difficulty": "Raske",
+            "price": "25 EUR",
+            "description": "Pikem, raskem matk mööda Slītere Sinimägede astangut ja puutumatut metsa... (Täielik kirjeldus ET)"
+        }
+    },
+    "lt": {
+        "kemeru-purvs": {
+            "title": "Didžioji Kemerų Pelkė",
+            "subtitle": "Mistinis pasivaikščiojimas mediniu taku",
+            "duration": "3-4 valandos",
+            "difficulty": "Lengvas",
+            "price": "20 EUR",
+            "description": "Susipažinkite su pelkės ekosistema... (Pilnas aprašymas LT)"
+        },
+        "gauja-senleja": {
+            "title": "Gaujos Slėnio Paslaptys",
+            "subtitle": "Smiltainio uolos ir urvai",
+            "duration": "6-7 valandos",
+            "difficulty": "Vidutinis",
+            "price": "25 EUR",
+            "description": "Žygis Gaujos pakrantėmis, aplankant Sietiņiezis uolą ir Gūmaņa urvus... (Pilnas aprašymas LT)"
+        },
+        "raznas-ezers": {
+            "title": "Raznos Ežero Gamtos Takas",
+            "subtitle": "Latgalos jūros ramybė",
+            "duration": "2-3 valandos",
+            "difficulty": "Lengvas",
+            "price": "15 EUR",
+            "description": "Lengvas pasivaikščiojimas prie didžiausio Latgalos ežero krantų... (Pilnas aprašymas LT)"
+        },
+        "pieejas-kapas": {
+            "title": "Pajūrio Kopų ir Miško Takas",
+            "subtitle": "Pajūrio flora ir gintaro paieška",
+            "duration": "4-5 valandos",
+            "difficulty": "Vidutinis",
+            "price": "20 EUR",
+            "description": "Atraskite unikalią pakrantės florą ir fauną Jūrmalos gamtos parke... (Pilnas aprašymas LT)"
+        },
+        "versu-purvs": {
+            "title": "Vēršu Pelkė: Paukščių Stebėjimo Ekspresas",
+            "subtitle": "Autentiška pelkės patirtis ir paukščių stebėjimas",
+            "duration": "5-6 valandos",
+            "difficulty": "Vidutinis",
+            "price": "20 EUR",
+            "description": "Gilesnė pelkės patirtis mažiau žinomais takais. Stebėkite paukščius iš bokštų... (Pilnas aprašymas LT)"
+        },
+        "sliteres-dizmezi": {
+            "title": "Slīteres Nacionalinis Parkas: Senuoliai Miškai",
+            "subtitle": "Senojo Baltijos ledyno ežero krantas",
+            "duration": "7-8 valandos",
+            "difficulty": "Sunkus",
+            "price": "25 EUR",
+            "description": "Ilgesnis, sunkesnis žygis Slīteres Mėlynųjų kalnų atšlaitėmis ir nepaliestu mišku... (Pilnas aprašymas LT)"
+        }
+    }
+}
