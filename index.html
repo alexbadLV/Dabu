@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atklāj Latvijas Neskarto Dabu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* == VISPĀRĒJIE STILI == */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #1e4d2b; /* Dziļi zaļš tonis */
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #4CAF50; /* Spilgti zaļš */
+            margin: 10px auto 0;
+        }
+
+        /* == VALODU PĀRSLĒGS == */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 5%;
+            z-index: 1000;
+        }
+
+        .language-switcher button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            opacity: 0.7;
+            padding: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .language-switcher button:hover, .language-switcher button.active {
+            opacity: 1;
+            color: #1e4d2b;
+        }
+
+        /* == HEADER un NAVIGĀCIJA == */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1e4d2b;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        /* == HERO SEKCIJA == */
+        .hero {
+            background: url('https://picsum.photos/1920/800/?nature,latvia,bog') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.45); /* Pārklājums labākai teksta salasāmībai */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #388E3C;
+            transform: scale(1.05);
+        }
+
+        /* == PAR MUMS/EKSLKURSIJAS KOPĒJIE STILI == */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* == EKSLKURSIJU KARTES == */
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tour-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tour-card-image {
+            height: 200px;
+            background: #eee;
+            /* Šeit varētu ielikt attēlus, piemēram, ar  */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Demo attēli kartēm */
+        .tour-card:nth-child(1) .tour-card-image { background-image: url('https://picsum.photos/600/400/?bog'); }
+        .tour-card:nth-child(2) .tour-card-image { background-image: url('https://picsum.photos/600/400/?cave'); }
+        .tour-card:nth-child(3) .tour-card-image { background-image: url('https://picsum.photos/600/400/?lake'); }
+        .tour-card:nth-child(4) .tour-card-image { background-image: url('https://picsum.photos/600/400/?sea'); }
+        .tour-card:nth-child(5) .tour-card-image { background-image: url('https://picsum.photos/600/400/?bird'); }
+        .tour-card:nth-child(6) .tour-card-image { background-image: url('https://picsum.photos/600/400/?forest'); }
+
+        .tour-card-content {
+            padding: 20px;
+        }
+
+        .tour-card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #1e4d2b;
+        }
+
+        .tour-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tour-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .tour-meta i {
+            margin-right: 5px;
+            color: #4CAF50;
+        }
+
+        .tour-price {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #388E3C;
+            margin-top: 10px;
+        }
+        
+        /* == DETALIZĒTI APRAKSTI (Modal vai Izvēršamais bloks) */
+        .details-toggle {
+            display: block;
+            background: #f0f0f0;
+            color: #1e4d2b;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .details-toggle:hover {
+            background-color: #ddd;
+        }
+
+        .tour-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            padding: 0 10px;
+        }
+
+        .tour-details p {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .tour-details h4 {
+            color: #388E3C;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        /* == CENU TABULA == */
+        .price-table {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f0fff0; /* Gaiši zaļš fons galvenei */
+            color: #1e4d2b;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+
+        .price-category h3 {
+            color: #4CAF50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .price-highlight {
+            font-weight: 700;
+            color: #388E3C;
+        }
+        
+        /* == PAR MUMS == */
+        .about-grid {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-seasons {
+            flex: 1;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-seasons h3 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+
+        .about-seasons ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-seasons ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .sustainability {
+            background: #f0fff0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #388E3C;
+            margin-top: 30px;
+        }
+
+
+        /* == KONTAKTI/FORMA == */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #1e4d2b;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #388E3C;
+        }
+
+        .contact-info {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .social-media a {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #1e4d2b;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #4CAF50;
+        }
+
+        /* == FOOTER == */
+        footer {
+            background: #1e4d2b;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        /* == VALODU SLĒPŠANA (JS kontrole) == */
+        .en-content, .lv-content {
+            display: none;
+        }
+        
+        .active-lang {
+            display: block;
+        }
+
+        /* Ikonas (vienkāršotai versijai) */
+        .icon {
+            margin-right: 5px;
+            color: #4CAF50;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.1em; }
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 5px 0; }
+            .about-grid, .contact-grid { flex-direction: column; }
+            .tour-meta { flex-direction: column; align-items: flex-start; }
+            .tour-meta span { margin-bottom: 5px; }
+            .language-switcher { top: 10px; right: 10px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="language-switcher">
+        <button id="lang-lv" class="active"><span class="icon">🇱🇻</span> LV</button>
+        <button id="lang-en"><span class="icon">🇬🇧</span> EN</button>
+    </div>
+
+    <header>
+        <nav class="container">
+            <ul id="main-nav">
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="lv-content" class="lv-content active-lang">
+            <section id="lv-hero" class="hero">
+                <div class="hero-content">
+                    <h1>Atklāj Latvijas Neskarto Dabu</h1>
+                    <p>Latvija – tā ir nebeidzama mežu zaļā elpa, tūkstošiem ezeru mirdzums un gadsimtiem veci purvi. Mēs aicinām Tevi atslēgties no pilsētas steigas un ienirt ziemeļu dabas klusumā. Sāc savu zaļo piedzīvojumu jau šodien!</p>
+                    <a href="#lv-kontakti" class="cta-button">➡️ Rezervē Ekskursiju</a>
+                </div>
+            </section>
+
+            <section id="lv-par-mums" class="section-padding container">
+                <h2>Par Mums: Mēs un Latvijas Daba</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Latvija ir viena no zaļākajām valstīm Eiropā, kas piedāvā unikālas dabas tūrisma iespējas visiem sagatavotības līmeņiem. Mēs nodrošinām vieglu piekļuvi labiekārtotām takām un mazāk zināmiem dabas objektiem.</p>
+                        
+                        <div class="sustainability">
+                            <h3><i class="fas fa-seedling icon"></i> Drošība un Ilgtspēja</h3>
+                            <ul>
+                                <li>**Drošība Pirmajā Vietā:** Visas ekskursijas vada sertificēti gidi. Mēs nodrošinām nepieciešamo ekipējumu.</li>
+                                <li>**Atbildība:** Mēs ievērojam **"Neatstāj Pēdas"** principu – saudzējam dabu un veicinām tās saglabāšanu nākamajām paaudzēm.</li>
+                                <li>**Vietējais Ieguldījums:** Sadarbojamies ar vietējiem uzņēmējiem.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="about-seasons">
+                        <h3><i class="fas fa-calendar-alt icon"></i> Sezonālās Iespējas</h3>
+                        <ul>
+                            <li>**Pavasaris (Marts – Maijs):** Putnu vērošana, dabas atmoda.</li>
+                            <li>**Vasara (Jūnijs – Augusts):** Pārgājieni mežos, peldes ezeros un jūrā.</li>
+                            <li>**Rudens (Septembris – Novembris):** Krāsu spēles Gaujas senlejā, sēņošana.</li>
+                            <li>**Ziema (Decembris – Februāris):** Slēpošanas takas, pārgājieni ar sniega kurpēm.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lv-ekskursijas" class="section-padding" style="background-color: #f0fff0;">
+                <div class="container">
+                    <h2>Mūsu Ekskursiju Piedāvājums</h2>
+                    <div class="tours-grid">
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?bog');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-map-marker-alt icon"></i> Lielais Ķemeru Purvs</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 3-4 stundas</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Viegls</span>
+                                    <span><i class="fas fa-sun"></i> Visu gadu</span>
+                                </div>
+                                <p>Iepazīsti purva ekosistēmu uz labiekārtotas koka laipas. Neaizmirstami saullēkti un saulrieti virs purva ezeriņiem.</p>
+                                <div class="tour-price">No 20 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('lv-details-1')">Skatīt Detalizēti</div>
+                                <div id="lv-details-1" class="tour-details">
+                                    <h4>Detalizēts Apraksts:</h4>
+                                    <p>Aicinām uz mistisku rīta pastaigu, vērojot purva ezeriņu labirintus, kas mirdz saulē. Lieliska vieta ainavu fotogrāfijai.</p>
+                                    <h4>Ko ņemt līdzi:</h4>
+                                    <p>Ērti, slēgti apavi, ūdens, kamera, pretodu līdzeklis (vasarā).</p>
+                                    <h4>Piemērotība:</h4>
+                                    <p>Ģimenēm, senioriem, labiekārtots maršruts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?cave');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-mountain icon"></i> Gaujas Senlejas Noslēpumi</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 6-7 stundas</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Vidējs</span>
+                                    <span><i class="fas fa-sun"></i> Aprīlis – Oktobris</span>
+                                </div>
+                                <p>Pārgājiens gar Gaujas krastiem, apmeklējot Sietiņiezi un Gūmaņa alas. Baltijas klintis, kas atklāj tūkstošgadu vēsturi.</p>
+                                <div class="tour-price">No 25 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('lv-details-2')">Skatīt Detalizēti</div>
+                                <div id="lv-details-2" class="tour-details">
+                                    <h4>Detalizēts Apraksts:</h4>
+                                    <p>Apmeklēsim Cīrulīšu dabas takas Cēsīs un 350 miljonus gadu vecos smilšakmens atsegumus. Rudenī senleja kļūst par īstu krāsu paleti.</p>
+                                    <h4>Ko ņemt līdzi:</h4>
+                                    <p>Pārgājienu apavi (obligāti), ūdens, pusdienu paka, lukturītis (alām).</p>
+                                    <h4>Piemērotība:</h4>
+                                    <p>Aktīviem ceļotājiem, pārgājienu mīļotājiem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?lake');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-water icon"></i> Rāznas Ezera Dabas Taka</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 2-3 stundas</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Viegls</span>
+                                    <span><i class="fas fa-sun"></i> Maijs – Septembris</span>
+                                </div>
+                                <p>Viegla pastaiga gar Latgales lielākā ezera – Rāznas – krastiem. Baudīsim mieru un gleznainus skatus. Lieliska atpūta vasarā.</p>
+                                <div class="tour-price">No 15 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('lv-details-3')">Skatīt Detalizēti</div>
+                                <div id="lv-details-3" class="tour-details">
+                                    <h4>Detalizēts Apraksts:</h4>
+                                    <p>Miera un plašuma osta. Ideāla, relaksējoša pastaiga ģimenēm. Ūdens ir kristāldzidrs, un ainava ir nomierinoša.</p>
+                                    <h4>Ko ņemt līdzi:</h4>
+                                    <p>Ūdens, vieglas uzkodas. Vasarā – peldlietas un aizsardzība pret sauli!</p>
+                                    <h4>Piemērotība:</h4>
+                                    <p>Ģimenēm ar maziem bērniem, relaksējošas atpūtas cienītājiem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?sea');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-wind icon"></i> Piejūras Kāpu Un Mežu Taka</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 4-5 stundas</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Vidējs</span>
+                                    <span><i class="fas fa-sun"></i> Visu gadu</span>
+                                </div>
+                                <p>Iepazīsti unikālo piekrastes floru un faunu Jūrmalas dabas parkā. Plaši skati uz jūru un priedēm. Dzintaru meklēšana garantēta!</p>
+                                <div class="tour-price">No 20 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('lv-details-4')">Skatīt Detalizēti</div>
+                                <div id="lv-details-4" class="tour-details">
+                                    <h4>Detalizēts Apraksts:</h4>
+                                    <p>Pārgājiens cauri kāpu zonām. Iepazīsimies ar kāpu veidošanās procesu un vērosim piekrastes priežu mežus. Ziemā – krāšņas apledojušas ainavas.</p>
+                                    <h4>Ko ņemt līdzi:</h4>
+                                    <p>Apģērbs pret vēju, ērts apģērbs staigāšanai pa smiltīm, termos ar karstu dzērienu.</p>
+                                    <h4>Piemērotība:</h4>
+                                    <p>Ģimenēm, dabas mīļotājiem. Var būt apgrūtināta pārvietošanās pa dziļām smiltīm.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?bird');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-binoculars icon"></i> Vēršu Purvs: Putnu Novērošanas Ekspress</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 5-6 stundas</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Vidējs</span>
+                                    <span><i class="fas fa-sun"></i> Aprīlis-Jūnijs, Septembris-Oktobris</span>
+                                </div>
+                                <p>Dziļāka purva pieredze mazāk zināmās takās. Novēro putnus no torņiem un mācies atpazīt purva augus. Autentisks purva klusums.</p>
+                                <div class="tour-price">No 20 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('lv-details-5')">Skatīt Detalizēti</div>
+                                <div id="lv-details-5" class="tour-details">
+                                    <h4>Detalizēts Apraksts:</h4>
+                                    <p>Ideāls galamērķis ornitoloģijas entuziastiem. Pārgājiens pa nepārveidotām purva takām, vērojot retas putnu sugas. Būs nepieciešami gumijas zābaki.</p>
+                                    <h4>Ko ņemt līdzi:</h4>
+                                    <p>**Gumijas zābaki ir obligāti**, binoklis, tumšs apģērbs, ūdens.</p>
+                                    <h4>Piemērotība:</h4>
+                                    <p>Putnu vērotājiem. Nav piemērots maziem bērniem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?forest');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-tree icon"></i> Slīteres Nacionālais Parks: Dižmeži</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 7-8 stundas</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Grūts</span>
+                                    <span><i class="fas fa-sun"></i> Maijs – Oktobris</span>
+                                </div>
+                                <p>Ilgāks, grūtāks pārgājiens pa Slīteres Zilo kalnu krauju un neaiztiktu mežu. Bioloģiski daudzveidīgākā vieta Latvijā. Tuva Kolkasragam.</p>
+                                <div class="tour-price">No 25 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('lv-details-6')">Skatīt Detalizēti</div>
+                                <div id="lv-details-6" class="tour-details">
+                                    <h4>Detalizēts Apraksts:</h4>
+                                    <p>Pārgājiens pa senās Baltijas ledus ezera krastu. Slītere ir slavena ar savu "dižmežu" – neaiztiktu mežu, kurā notiek dabiski procesi. Vērojamas retas orhidejas.</p>
+                                    <h4>Ko ņemt līdzi:</h4>
+                                    <p>Pārgājienu apavi, ūdensnecaurlaidīgs apģērbs, pusdienu paka, ērču atbaidīšanas līdzeklis.</p>
+                                    <h4>Piemērotība:</h4>
+                                    <p>Pieredzējušiem pārgājienu dalībniekiem.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lv-izcenojumi" class="section-padding container">
+                <h2>Cenas un Pakalpojumi</h2>
+                <div class="price-table">
+                    
+                    <div class="price-category">
+                        <h3><i class="fas fa-hiking icon"></i> 1. Ekskursiju Veidi (Bāzes Cena)</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ekskursijas Veids</th>
+                                    <th>Ilgums</th>
+                                    <th>Cena (EUR/persona)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Īsas Dabas Pastaigas</td>
+                                    <td>2-3 stundas</td>
+                                    <td class="price-highlight">15 - 25 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td>Pusdienas Ekskursijas</td>
+                                    <td>4-5 stundas</td>
+                                    <td class="price-highlight">30 - 40 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td>Pilnas Dienas Piedzīvojumi</td>
+                                    <td>~8 stundas</td>
+                                    <td class="price-highlight">50 - 75 EUR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="price-category">
+                        <h3><i class="fas fa-plus-circle icon"></i> 2. Papildus Pakalpojumi</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pakalpojums</th>
+                                    <th>Apraksts</th>
+                                    <th>Cena (EUR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Privāts Gids</td>
+                                    <td>Individuāla gida uzmanība tikai Jūsu grupai.</td>
+                                    <td class="price-highlight">+ 20 EUR (par grupu/stunda)</td>
+                                </tr>
+                                <tr>
+                                    <td>Transporta Nodrošināšana</td>
+                                    <td>Transports no/uz Rīgu vai citu vietu.</td>
+                                    <td class="price-highlight">10 - 30 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td>Piknika Komplekts</td>
+                                    <td>Vietējo produktu paka pārgājiena laikā.</td>
+                                    <td class="price-highlight">15 EUR/persona</td>
+                                </tr>
+                                <tr>
+                                    <td>Profesionāls Foto</td>
+                                    <td>Fotogrāfs iemūžinās Jūsu piedzīvojumu.</td>
+                                    <td class="price-highlight">+ 25 EUR (par ekskursiju)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="price-category">
+                        <h3><i class="fas fa-tags icon"></i> 3. Atlaides un Īpašie Piedāvājumi</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Atlaides Veids</th>
+                                    <th>Nosacījumi</th>
+                                    <th>Atlaižu Procenti</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ģimenes Atlaide</td>
+                                    <td>2 pieaugušie un bērni līdz 16 g.v.</td>
+                                    <td class="price-highlight">-10%</td>
+                                </tr>
+                                <tr>
+                                    <td>Grupas Atlaide</td>
+                                    <td>Rezervējot ekskursiju 5+ cilvēku grupai.</td>
+                                    <td class="price-highlight">-15%</td>
+                                </tr>
+                                <tr>
+                                    <td>Agrīna Rezervācija</td>
+                                    <td>Vismaz 14 dienas pirms norises datuma.</td>
+                                    <td class="price-highlight">-10%</td>
+                                </tr>
+                                <tr>
+                                    <td>Sezonas Atlaides</td>
+                                    <td>Ekskursijām Novembrī – Martā.</td>
+                                    <td class="price-highlight">-20%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lv-kontakti" class="section-padding container">
+                <h2>Sazinies ar Mums</h2>
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h3>Rezervācijas Forma</h3>
+                        <form action="#" method="POST">
+                            <label for="lv-name">Vārds Uzvārds:</label>
+                            <input type="text" id="lv-name" name="name" required>
+                            
+                            <label for="lv-email">E-pasts:</label>
+                            <input type="email" id="lv-email" name="email" required>
+                            
+                            <label for="lv-phone">Telefona Nr.:</label>
+                            <input type="tel" id="lv-phone" name="phone">
+
+                            <label for="lv-tour">Vēlamā ekskursija/Datums:</label>
+                            <input type="text" id="lv-tour" name="tour">
+                            
+                            <label for="lv-comments">Jautājumi/Komentāri:</label>
+                            <textarea id="lv-comments" name="comments" rows="4"></textarea>
+                            
+                            <button type="submit">Iesniegt Rezervāciju</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3><i class="fas fa-info-circle icon"></i> Tiešais Kontakts</h3>
+                        <p>📞 **Telefons:** +371 12 345 678</p>
+                        <p>📧 **E-pasts:** info@latvijasdaba.lv</p>
+                        
+                        <h3><i class="fas fa-share-alt icon"></i> Sociālie Tīkli</h3>
+                        <div class="social-media">
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        
+                        <h3><i class="fas fa-question-circle icon"></i> FAQ</h3>
+                        <p>**Vai ir nepieciešams transports?** Jā, mēs piedāvājam transportu no Rīgas/norunātā vieta.</p>
+                        <p>**Kā notiek apmaksa?** Apmaksa tiešsaistē vai uz vietas.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="en-content" class="en-content">
+            <section id="en-hero" class="hero">
+                <div class="hero-content">
+                    <h1>Discover Latvia's Untamed Nature</h1>
+                    <p>Latvia – the endless green breath of forests, the shimmer of thousands of lakes, and centuries-old bogs. We invite you to disconnect from the city rush and immerse yourself in the silence of Northern nature. Start your green adventure today!</p>
+                    <a href="#en-contacts" class="cta-button">➡️ Book a Tour</a>
+                </div>
+            </section>
+
+            <section id="en-about-us" class="section-padding container">
+                <h2>About Us: Us and the Latvian Wilderness</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Latvia is one of the greenest countries in Europe, offering unique nature tourism opportunities for all fitness levels. We ensure easy access to well-maintained trails and lesser-known natural sites.</p>
+                        
+                        <div class="sustainability">
+                            <h3><i class="fas fa-seedling icon"></i> Safety and Sustainability</h3>
+                            <ul>
+                                <li>**Safety First:** All tours are led by certified guides. We provide the necessary equipment.</li>
+                                <li>**Responsibility:** We follow the **"Leave No Trace"** principle – we protect nature and promote its preservation for future generations.</li>
+                                <li>**Local Contribution:** We collaborate with local businesses.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="about-seasons">
+                        <h3><i class="fas fa-calendar-alt icon"></i> Seasonal Opportunities</h3>
+                        <ul>
+                            <li>**Spring (March – May):** Birdwatching, nature awakening.</li>
+                            <li>**Summer (June – August):** Hiking in forests, swimming in lakes and the sea.</li>
+                            <li>**Autumn (September – November):** Colour play in the Gauja River Valley.</li>
+                            <li>**Winter (December – February):** Ski trails, snowshoe hikes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="en-tours" class="section-padding" style="background-color: #f0fff0;">
+                <div class="container">
+                    <h2>Our Tour Offerings</h2>
+                    <div class="tours-grid">
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?bog');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-map-marker-alt icon"></i> Great Ķemeri Bog</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 3-4 hours</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Easy</span>
+                                    <span><i class="fas fa-sun"></i> All Year Round</span>
+                                </div>
+                                <p>Explore the bog ecosystem on a well-maintained wooden boardwalk. Unforgettable sunrises and sunsets over the bog pools.</p>
+                                <div class="tour-price">From 20 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('en-details-1')">View Details</div>
+                                <div id="en-details-1" class="tour-details">
+                                    <h4>Detailed Description:</h4>
+                                    <p>An invitation to a mystical morning walk, observing the labyrinth of bog pools that shimmer in the sun. A great place for landscape photography.</p>
+                                    <h4>What to Bring:</h4>
+                                    <p>Comfortable, closed shoes, water, camera, insect repellent (in summer).</p>
+                                    <h4>Suitability:</h4>
+                                    <p>Families, seniors, accessible route.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?cave');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-mountain icon"></i> Gauja River Valley Secrets</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 6-7 hours</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Medium</span>
+                                    <span><i class="fas fa-sun"></i> April – October</span>
+                                </div>
+                                <p>Hike along the Gauja riverbanks, visiting Sietiņiezis and Gūmaņa Caves. Baltic cliffs revealing millennia of history.</p>
+                                <div class="tour-price">From 25 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('en-details-2')">View Details</div>
+                                <div id="en-details-2" class="tour-details">
+                                    <h4>Detailed Description:</h4>
+                                    <p>We will visit the Cīrulīši nature trails in Cēsis and the 350-million-year-old sandstone outcrops. In autumn, the valley becomes a true palette of colours.</p>
+                                    <h4>What to Bring:</h4>
+                                    <p>Hiking boots (mandatory), water, packed lunch, flashlight (for caves).</p>
+                                    <h4>Suitability:</h4>
+                                    <p>Active travellers, hiking enthusiasts.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?lake');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-water icon"></i> Rāzna Lake Nature Trail</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 2-3 hours</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Easy</span>
+                                    <span><i class="fas fa-sun"></i> May – September</span>
+                                </div>
+                                <p>A gentle walk along the shores of Rāzna – Latgale's largest lake. Enjoy peace and picturesque views. Great summer relaxation.</p>
+                                <div class="tour-price">From 15 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('en-details-3')">View Details</div>
+                                <div id="en-details-3" class="tour-details">
+                                    <h4>Detailed Description:</h4>
+                                    <p>An oasis of peace and vastness. Ideal, relaxing walk for families. The water is crystal clear and the landscape is calming.</p>
+                                    <h4>What to Bring:</h4>
+                                    <p>Water, light snacks. In summer – swimwear and sun protection!</p>
+                                    <h4>Suitability:</h4>
+                                    <p>Families with small children, lovers of relaxing recreation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?sea');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-wind icon"></i> Coastal Dunes and Forest Trail</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 4-5 hours</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Medium</span>
+                                    <span><i class="fas fa-sun"></i> All Year Round</span>
+                                </div>
+                                <p>Discover the unique coastal flora and fauna in Jūrmala Nature Park. Wide views of the sea and pine trees. Amber hunting guaranteed!</p>
+                                <div class="tour-price">From 20 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('en-details-4')">View Details</div>
+                                <div id="en-details-4" class="tour-details">
+                                    <h4>Detailed Description:</h4>
+                                    <p>Hike through the dune areas. We will learn about the process of dune formation and observe the coastal pine forests. In winter – spectacular icy landscapes.</p>
+                                    <h4>What to Bring:</h4>
+                                    <p>Windproof clothing, comfortable shoes for walking on sand, thermos with a hot drink.</p>
+                                    <h4>Suitability:</h4>
+                                    <p>Families, nature lovers. Movement may be difficult in deep sand.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?bird');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-binoculars icon"></i> Vēršu Bog: Bird Observation Express</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 5-6 hours</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Medium</span>
+                                    <span><i class="fas fa-sun"></i> April-June, Sept-Oct</span>
+                                </div>
+                                <p>Deeper bog experience on lesser-known trails. Observe birds from towers and learn to recognize bog plants. Authentic bog silence.</p>
+                                <div class="tour-price">From 20 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('en-details-5')">View Details</div>
+                                <div id="en-details-5" class="tour-details">
+                                    <h4>Detailed Description:</h4>
+                                    <p>An ideal destination for ornithology enthusiasts. Hike on undeveloped bog trails, observing rare bird species. Rubber boots will be necessary.</p>
+                                    <h4>What to Bring:</h4>
+                                    <p>**Rubber boots are mandatory**, binoculars, dark clothing, water.</p>
+                                    <h4>Suitability:</h4>
+                                    <p>Birdwatchers. Not suitable for small children.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-card">
+                            <div class="tour-card-image" style="background-image: url('https://picsum.photos/600/400?forest');"></div>
+                            <div class="tour-card-content">
+                                <h3><i class="fas fa-tree icon"></i> Slītere National Park: Old-Growth Forests</h3>
+                                <div class="tour-meta">
+                                    <span><i class="fas fa-clock"></i> 7-8 hours</span>
+                                    <span><i class="fas fa-shoe-prints"></i> Hard</span>
+                                    <span><i class="fas fa-sun"></i> May – October</span>
+                                </div>
+                                <p>A longer, harder hike along the Slītere Blue Hills cliff and an untouched forest. The most biologically diverse place in Latvia. Near Kolka Cape.</p>
+                                <div class="tour-price">From 25 EUR</div>
+                                <div class="details-toggle" onclick="toggleDetails('en-details-6')">View Details</div>
+                                <div id="en-details-6" class="tour-details">
+                                    <h4>Detailed Description:</h4>
+                                    <p>Hike along the ancient shore of the Baltic Ice Lake. Slītere is famous for its "dižmeži" (old-growth forests) – untouched forests where natural processes occur. Rare orchids can be observed.</p>
+                                    <h4>What to Bring:</h4>
+                                    <p>Hiking boots, waterproof clothing, packed lunch, tick repellent.</p>
+                                    <h4>Suitability:</h4>
+                                    <p>Experienced hikers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="en-pricing" class="section-padding container">
+                <h2>Prices and Services</h2>
+                <div class="price-table">
+                    
+                    <div class="price-category">
+                        <h3><i class="fas fa-hiking icon"></i> 1. Tour Types (Base Price)</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tour Type</th>
+                                    <th>Duration</th>
+                                    <th>Price (EUR/person)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Short Nature Walks</td>
+                                    <td>2-3 hours</td>
+                                    <td class="price-highlight">15 - 25 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td>Half-Day Excursions</td>
+                                    <td>4-5 hours</td>
+                                    <td class="price-highlight">30 - 40 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td>Full-Day Adventures</td>
+                                    <td>~8 hours</td>
+                                    <td class="price-highlight">50 - 75 EUR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="price-category">
+                        <h3><i class="fas fa-plus-circle icon"></i> 2. Additional Services</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Description</th>
+                                    <th>Price (EUR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Private Guide</td>
+                                    <td>Individual guide attention exclusively for your group.</td>
+                                    <td class="price-highlight">+ 20 EUR (per group/hour)</td>
+                                </tr>
+                                <tr>
+                                    <td>Transportation</td>
+                                    <td>Transport from/to Riga or another location.</td>
+                                    <td class="price-highlight">10 - 30 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td>Picnic Set</td>
+                                    <td>Local product pack during the hike.</td>
+                                    <td class="price-highlight">15 EUR/person</td>
+                                </tr>
+                                <tr>
+                                    <td>Professional Photo</td>
+                                    <td>Photographer will capture your adventure.</td>
+                                    <td class="price-highlight">+ 25 EUR (per tour)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="price-category">
+                        <h3><i class="fas fa-tags icon"></i> 3. Discounts and Special Offers</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Discount Type</th>
+                                    <th>Conditions</th>
+                                    <th>Discount Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Family Discount</td>
+                                    <td>2 adults and children up to 16 y.o.</td>
+                                    <td class="price-highlight">-10%</td>
+                                </tr>
+                                <tr>
+                                    <td>Group Discount</td>
+                                    <td>Booking a tour for a group of 5+ people.</td>
+                                    <td class="price-highlight">-15%</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Booking</td>
+                                    <td>At least 14 days before the event date.</td>
+                                    <td class="price-highlight">-10%</td>
+                                </tr>
+                                <tr>
+                                    <td>Seasonal Discounts</td>
+                                    <td>For tours in November – March.</td>
+                                    <td class="price-highlight">-20%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="en-contacts" class="section-padding container">
+                <h2>Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h3>Booking Form</h3>
+                        <form action="#" method="POST">
+                            <label for="en-name">Full Name:</label>
+                            <input type="text" id="en-name" name="name" required>
+                            
+                            <label for="en-email">E-mail:</label>
+                            <input type="email" id="en-email" name="email" required>
+                            
+                            <label for="en-phone">Phone No.:</label>
+                            <input type="tel" id="en-phone" name="phone">
+
+                            <label for="en-tour">Preferred Tour/Date:</label>
+                            <input type="text" id="en-tour" name="tour">
+                            
+                            <label for="en-comments">Questions/Comments:</label>
+                            <textarea id="en-comments" name="comments" rows="4"></textarea>
+                            
+                            <button type="submit">Submit Reservation</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3><i class="fas fa-info-circle icon"></i> Direct Contact</h3>
+                        <p>📞 **Phone:** +371 12 345 678</p>
+                        <p>📧 **E-mail:** info@latvijasdaba.lv</p>
+                        
+                        <h3><i class="fas fa-share-alt icon"></i> Social Media</h3>
+                        <div class="social-media">
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        
+                        <h3><i class="fas fa-question-circle icon"></i> FAQ</h3>
+                        <p>**Is transportation needed?** Yes, we offer transport from Riga/agreed location.</p>
+                        <p>**How does payment work?** Online payment or on-site.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Latvijas Dabas Tūrisms. Visi piedzīvojumi rezervēti.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JS funkcija valodu pārslēgšanai un detaļu atvēršanai
+        
+        const lvContent = document.getElementById('lv-content');
+        const enContent = document.getElementById('en-content');
+        const lvButton = document.getElementById('lang-lv');
+        const enButton = document.getElementById('lang-en');
+        const nav = document.getElementById('main-nav');
+        let currentLang = 'lv';
+
+        // Navigācijas saturs
+        const navContent = {
+            'lv': `
+                <li><a href="#lv-hero">Sākums</a></li>
+                <li><a href="#lv-par-mums">Par Mums</a></li>
+                <li><a href="#lv-ekskursijas">Ekskursijas</a></li>
+                <li><a href="#lv-izcenojumi">Cenas</a></li>
+                <li><a href="#lv-kontakti">Kontakti</a></li>
+            `,
+            'en': `
+                <li><a href="#en-hero">Home</a></li>
+                <li><a href="#en-about-us">About Us</a></li>
+                <li><a href="#en-tours">Tours</a></li>
+                <li><a href="#en-pricing">Pricing</a></li>
+                <li><a href="#en-contacts">Contacts</a></li>
+            `
+        };
+
+        function switchLanguage(lang) {
+            if (lang === currentLang) return;
+
+            if (lang === 'lv') {
+                lvContent.classList.add('active-lang');
+                enContent.classList.remove('active-lang');
+                lvButton.classList.add('active');
+                enButton.classList.remove('active');
+                document.documentElement.lang = 'lv';
+                nav.innerHTML = navContent.lv;
+            } else if (lang === 'en') {
+                lvContent.classList.remove('active-lang');
+                enContent.classList.add('active-lang');
+                lvButton.classList.remove('active');
+                enButton.classList.add('active');
+                document.documentElement.lang = 'en';
+                nav.innerHTML = navContent.en;
+            }
+            currentLang = lang;
+        }
+
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            const toggleButton = element.previousElementSibling;
+
+            if (element.style.maxHeight) {
+                element.style.maxHeight = null;
+                toggleButton.textContent = currentLang === 'lv' ? 'Skatīt Detalizēti' : 'View Details';
+            } else {
+                element.style.maxHeight = element.scrollHeight + "px";
+                toggleButton.textContent = currentLang === 'lv' ? 'Aizvērt' : 'Close';
+            }
+        }
+        
+        // Sākuma ielāde
+        document.addEventListener('DOMContentLoaded', () => {
+            // Iestata sākuma valodu un navigāciju
+            nav.innerHTML = navContent.lv;
+            
+            lvButton.addEventListener('click', () => switchLanguage('lv'));
+            enButton.addEventListener('click', () => switchLanguage('en'));
+        });
+
+    </script>
+</body>
+</html>
