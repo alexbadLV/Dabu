@@ -1329,7 +1329,7 @@
                                     <td class="price-highlight">10 - 30 EUR</td>
                                 </tr>
                                 <tr>
-                                    <td>Pikniko Komplektas</td>
+                                    <td>Pikniko Komplekts</td>
                                     <td>Vietinių produktų paketas žygio metu.</td>
                                     <td class="price-highlight">15 EUR/asmeniui</td>
                                 </tr>
@@ -1435,7 +1435,7 @@
                         
                         <h3><i class="fas fa-question-circle icon"></i> Dažniausiai Užduodami Klausimai (DUK)</h3>
                         <p>**Ar reikalingas transportas?** Taip, mes siūlām transportą iš Rygos/sutartos vietos.</p>
-                        <p>**Kaip vyksta apmokėjimas?** Apmokėjimas internetu arba vietoje.</p>
+                        <p>**Kā vyksta apmokėjimas?** Apmokėjimas internetu arba vietoje.</p>
                     </div>
                 </div>
             </section>
@@ -1632,6 +1632,41 @@
             });
 
             // Iestata sākuma valodu un navigāciju (LV pēc noklusējuma)
+            const navContent = {
+                'lv': `
+                    <li><a href="#lv-hero">Sākums</a></li>
+                    <li><a href="#lv-par-mums">Par Mums</a></li>
+                    <li><a href="#lv-ekskursijas">Ekskursijas</a></li>
+                    <li><a href="#lv-izcenojumi">Cenas</a></li>
+                    <li><a href="#lv-galerija">Galerija</a></li>
+                    <li><a href="#lv-kontakti">Kontakti</a></li>
+                `,
+                'en': `
+                    <li><a href="#en-hero">Home</a></li>
+                    <li><a href="#en-about-us">About Us</a></li>
+                    <li><a href="#en-tours">Tours</a></li>
+                    <li><a href="#en-pricing">Pricing</a></li>
+                    <li><a href="#en-gallery">Gallery</a></li>
+                    <li><a href="#en-contacts">Contacts</a></li>
+                `,
+                'et': `
+                    <li><a href="#et-hero">Avaleht</a></li>
+                    <li><a href="#et-about-us">Meist</a></li>
+                    <li><a href="#et-tours">Ekskursioonid</a></li>
+                    <li><a href="#et-pricing">Hinnad</a></li>
+                    <li><a href="#et-gallery">Galerii</a></li>
+                    <li><a href="#et-contacts">Kontaktid</a></li>
+                `,
+                'lt': `
+                    <li><a href="#lt-hero">Pradžia</a></li>
+                    <li><a href="#lt-about-us">Apie Mus</a></li>
+                    <li><a href="#lt-tours">Ekskursijos</a></li>
+                    <li><a href="#lt-pricing">Kainos</a></li>
+                    <li><a href="#lt-gallery">Galerija</a></li>
+                    <li><a href="#lt-contacts">Kontaktai</a></li>
+                `
+            };
+
             nav.innerHTML = navContent.lv;
             
             buttons['lv'].addEventListener('click', () => switchLanguage('lv'));
@@ -1648,7 +1683,7 @@
         // ČATBOTA FUNKCIONALITĀTE (Piespiedu Simulatora režīms)
         // =========================================================
 
-        const API_ENDPOINT = 'https://YOUR_SECURE_PROXY_SERVER_URL/gemini-chat'; 
+        const API_ENDPOINT = 'https://YOUR_SECURE_PROXY_SERVER_URL/gemini-chat'; // Šis paliek kā atgādinājums
         const chatbotButton = document.getElementById('chatbot-button');
         const chatbotWindow = document.getElementById('chatbot-window');
         const chatbotCloseButton = document.getElementById('chatbot-close-button');
@@ -1686,4 +1721,119 @@
                 'et': {
                     title: 'Looduse Bot (Küsi julgesti!)',
                     placeholder: 'Sinu küsimus...',
-                    welcome: 'Tere tulemast! Olen teie virtu
+                    welcome: 'Tere tulemast! Olen teie virtuaalne giid Läti loodusturismis. Küsige hindade, ekskursioonide (Ķemeri, Gauja), hooaegade või ohutuse kohta!',
+                    fallback: 'Vabandust, ma ei saanud küsimusest aru. Palun proovige ümber sõnastada või küsige konkreetne küsimus meie tuuride, hindade või jätkusuutlikkuse kohta.',
+                    tours_intro: 'Meie populaarsemad ekskursioonid on: Ķemeri Soo (soorajad), Gauja Rahvuspark (org/koopad), Rāzna Järve loodusrada, Ranniku luited, Vēršu Soo ja Slītere rajad. Milline neist pakub teile enim huvi?',
+                    prices_intro: 'Hinnad sõltuvad kestusest (2-8 tundi) ja grupi tüübist. Põhiline hinnaklass on 15 EUR (lühike jalutuskäik) kuni 75 EUR (terve päeva seiklus). Saadaval on grupi- ja pereallahindlused.',
+                    safety_info: 'Järgime rangelt "Jälgi Jätmata" põhimõtet. Kõiki tuure juhivad sertifitseeritud giidid. Ohutus on prioriteet!',
+                    seasonal_info: 'Suvi on ideaalne matkamiseks ja ujumiseks. Sügisel on Gauja värviline. Talvel pakume räätsamatku. Kevadel on aktiivne linnuvaatlus.',
+                },
+                'lt': {
+                    title: 'Gamtos Botas (Klauskite!)',
+                    placeholder: 'Jūsų klausimas...',
+                    welcome: 'Sveiki! Aš esu Jūsų virtualus gidas po Latvijos gamtos turizmą. Klauskite apie kainas, ekskursijas (Kemerai, Gauja), sezoną ar saugumą!',
+                    fallback: 'Atsiprašau, nesupratau klausimo. Prašau pabandykite perfrazuoti arba užduokite konkretų klausimą apie mūsų turus, kainas ar tvarumą.',
+                    tours_intro: 'Mūsų populiariausios ekskursijos yra: Kemerų Pelkė (pelkės takai), Gaujos Nacionalinis Parkas (slėnis/urvai), Raznos ežero gamtos takas, Pajūrio kopos, Vēršu pelkė ir Slītere takai. Kuris iš jų Jums labiausiai įdomus?',
+                    prices_intro: 'Kainos priklauso nuo trukmės (2-8 val.) ir grupės tipo. Bazinės kainos yra nuo 15 EUR (trumpas pasivaikščiojimas) iki 75 EUR (visos dienos nuotykis). Yra nuolaidos grupėms ir šeimoms.',
+                    safety_info: 'Mes griežtai laikomės "Nepaliekam Pėdsakų" principo. Visus turus veda sertifikuoti gidai. Saugumas yra prioritetas!',
+                    seasonal_info: 'Vasara idealiai tinka žygiams ir maudynėms. Rudenį Gauja pasipuošia spalvomis. Žiemą siūlome žygius su sniegbačiais. Pavasarį aktyviai stebimi paukščiai.',
+                }
+            };
+            
+            // Atjaunināt loga galveni un ievades vietu
+            chatbotTitle.textContent = botMessages[lang].title;
+            chatbotInput.placeholder = botMessages[lang].placeholder;
+            
+            // Notīrīt veco sarunu un pievienot jaunu sveicienu
+            chatbotBody.innerHTML = '';
+            appendMessage(botMessages[lang].welcome, 'bot');
+        }
+
+        function appendMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message');
+            messageDiv.innerHTML = text; // Izmantojam innerHTML, lai atbalstītu loading-dots un atrisinātu vizuālo kļūdu
+            if (sender === 'user') {
+                messageDiv.classList.add('user-message');
+            } else {
+                messageDiv.classList.add('bot-message');
+            }
+            chatbotBody.appendChild(messageDiv);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight; // Ritiniet uz leju
+        }
+
+        // Simulators API, ja URL nav nomainīts (SIMULATORS ATBILDĒM)
+        function processSimulatedMessage(message) {
+            const lang = currentLang;
+            const msg = message.toLowerCase();
+            let response = botMessages[lang].fallback;
+
+            // Simulētas atbildes
+            if (msg.includes('ekskursi') || msg.includes('tūre') || msg.includes('tours') || msg.includes('tur') || msg.includes('gids') || msg.includes('guide')) {
+                response = botMessages[lang].tours_intro || 'Mūsu populārākie tūrisma galamērķi ir Ķemeru purva takas, Gaujas senleja un Rāznas ezers.';
+            } else if (msg.includes('cena') || msg.includes('price') || msg.includes('kaina') || msg.includes('hind') || msg.includes('atlaides') || msg.includes('discount')) {
+                response = botMessages[lang].prices_intro || 'Cenas sākas no 15 EUR īsām pastaigām un var sasniegt 75 EUR pilnas dienas privātiem piedzīvojumiem.';
+            } else if (msg.includes('drošīb') || msg.includes('safety') || msg.includes('saugum') || msg.includes('ohut') || msg.includes('risks')) {
+                response = botMessages[lang].safety_info || 'Visas ekskursijas vada sertificēti gidi, un mēs ievērojam "Neatstāj Pēdas" principu. Drošība ir mūsu prioritāte.';
+            } else if (msg.includes('sezon') || msg.includes('season') || msg.includes('hooaja') || msg.includes('žiem') || msg.includes('vasar') || msg.includes('rudens') || msg.includes('pavasar') || msg.includes('ziema')) {
+                response = botMessages[lang].seasonal_info || 'Katrs gadalaiks piedāvā unikālas iespējas: putnu vērošanu pavasarī, peldes vasarā, krāšņas rudens krāsas un pārgājienus ar sniega kurpēm ziemā.';
+            } else if (msg.includes('sveiki') || msg.includes('hi') || msg.includes('tere') || msg.includes('labas') || msg.includes('čau')) {
+                 response = botMessages[lang].welcome;
+            }
+
+            // Simulēt ielādi
+            isWaitingForResponse = true;
+            chatbotInput.disabled = true;
+            chatbotSendButton.disabled = true;
+            appendMessage('<span class="loading-dots">Domas lido...</span>', 'bot');
+            
+            setTimeout(() => {
+                // Noņemam pēdējo ielādes ziņojumu
+                if (chatbotBody.lastChild) {
+                    chatbotBody.lastChild.remove(); 
+                }
+                appendMessage(response, 'bot');
+                
+                isWaitingForResponse = false;
+                chatbotInput.disabled = false;
+                chatbotSendButton.disabled = false;
+                chatbotInput.focus();
+            }, 1500); // 1.5 sekundes simulēta aizture
+        }
+
+
+        function sendMessage() {
+            if (isWaitingForResponse) return;
+            
+            const message = chatbotInput.value.trim();
+            if (message) {
+                appendMessage(message, 'user');
+                chatbotInput.value = '';
+                
+                // Izmantojam simulāciju, lai nodrošinātu funkcionalitāti bez API.
+                processSimulatedMessage(message);
+            }
+        }
+
+        // Notikumu klausītāji
+        chatbotButton.addEventListener('click', () => {
+            chatbotWindow.style.display = (chatbotWindow.style.display === 'flex') ? 'none' : 'flex';
+            if (chatbotWindow.style.display === 'flex') {
+                chatbotInput.focus();
+            }
+        });
+
+        chatbotCloseButton.addEventListener('click', () => {
+            chatbotWindow.style.display = 'none';
+        });
+
+        chatbotSendButton.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+    </script>
+</body>
+</html>
