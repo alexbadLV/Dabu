@@ -102,14 +102,28 @@
             border-radius: 5px;
         }
 
-        /* == HERO SEKCIJA == */
+        /* == HERO SEKCIJA (Video aizvietošana) == */
         .hero {
-            /* ATTĒLS: Purva saullēkts (Latvijas daba) */
-            background: url('https://picsum.photos/1920/800/?nature,latvia,bog') center/cover no-repeat;
+            position: relative;
+            height: 80vh; /* Nodrošina labu Hero bloka augstumu */
             color: #fff;
             text-align: center;
-            padding: 150px 20px;
-            position: relative;
+            padding: 0; 
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
         }
 
         .hero::before {
@@ -633,7 +647,7 @@
 
     <div class="language-switcher">
         <button id="lang-lv" class="active"><span class="icon"></span> LV</button>
-        <button id="lang-en"><span class="icon"></span>EN</button>
+        <button id="lang-en"><span class="icon"></span> EN</button>
         <button id="lang-et"><span class="icon"></span> ET</button>
         <button id="lang-lt"><span class="icon"></span> LT</button>
     </div>
@@ -648,6 +662,9 @@
     <main>
         <div id="lv-content" class="lv-content active-lang">
             <section id="lv-hero" class="hero">
+			<video autoplay loop muted playsinline controls id="hero-video">
+                    <source src="https://github.com/alexbadLV/Dabu/raw/main/data/best.mp4" type="video/mp4">
+                    </video>
                 <div class="hero-content">
                     <h1>Atklāj Latvijas Neskarto Dabu</h1>
                     <p>Latvija – tā ir nebeidzama mežu zaļā elpa, tūkstošiem ezeru mirdzums un gadsimtiem veci purvi. Mēs aicinām Tevi atslēgties no pilsētas steigas un ienirt ziemeļu dabas klusumā. Sāc savu zaļo piedzīvojumu jau šodien!</p>
@@ -996,7 +1013,10 @@
         </div>
 
         <div id="en-content" class="en-content">
-            <section id="en-hero" class="hero" style="background-image: url('https://picsum.photos/1920/800/?nature,latvia,bog');">
+           <section id="en-hero" class="hero">
+                <video autoplay loop muted playsinline controls id="hero-video">
+                    <source src="https://github.com/alexbadLV/Dabu/raw/main/data/best.mp4" type="video/mp4">
+                </video>
                 <div class="hero-content">
                     <h1>Discover Latvia's Untamed Nature</h1>
                     <p>Latvia – the endless green breath of forests, the shimmer of thousands of lakes, and centuries-old bogs. We invite you to disconnect from the city rush and immerse yourself in the silence of Northern nature. Start your green adventure today!</p>
@@ -1345,7 +1365,10 @@
         </div>
 
         <div id="et-content" class="et-content">
-            <section id="et-hero" class="hero" style="background-image: url('https://picsum.photos/1920/800/?nature,latvia,bog');">
+            <section id="et-hero" class="hero">
+			<video autoplay loop muted playsinline controls id="hero-video">
+                    <source src="https://github.com/alexbadLV/Dabu/raw/main/data/best.mp4" type="video/mp4">
+                </video>
                 <div class="hero-content">
                     <h1>Avasta Läti Puutumatu Loodus</h1>
                     <p>Läti – see on metsade lõputu roheline hingus, tuhandete järvede sära ja sajanditevanused sood. Kutsume sind linnamelust lahti ütlema ja sukelduma põhjamaise looduse vaikusesse. Alusta oma rohelist seiklust juba täna!</p>
@@ -1695,7 +1718,10 @@
         </div>
 
         <div id="lt-content" class="lt-content">
-            <section id="lt-hero" class="hero" style="background-image: url('https://picsum.photos/1920/800/?nature,latvia,bog');">
+            <section id="lt-hero" class="hero">
+			<video autoplay loop muted playsinline controls id="hero-video">
+                    <source src="https://github.com/alexbadLV/Dabu/raw/main/data/best.mp4" type="video/mp4">
+                </video>
                 <div class="hero-content">
                     <h1>Atraskite Paliestą Latvijos Gamta</h1>
                     <p>Latvija – tai nesibaigiantis miškų žalias alsavimas, tūkstančių ežerų švytėjimas ir šimtmečių senumo pelkės. Kviečiame atitrūkti nuo miesto šurmulio ir pasinerti į šiaurės gamtos ramybę. Pradėkite savo žalią nuotykį jau šiandien!</p>
