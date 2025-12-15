@@ -115,7 +115,7 @@
             justify-content: center;
         }
 
-        #hero-video {
+        .hero video {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -664,7 +664,7 @@
     <main>
         <div id="lv-content" class="lv-content active-lang">
             <section id="lv-hero" class="hero">
-                <video autoplay loop **controls** playsinline id="hero-video">
+                <video autoplay loop controls playsinline id="hero-video">
                     <source src="https://github.com/alexbadLV/Dabu/blob/main/data/best.mp4?raw=true" type="video/mp4">
                     </video>
                 <div class="hero-content">
@@ -879,7 +879,7 @@
 
         <div id="en-content" class="en-content">
             <section id="en-hero" class="hero">
-                <video autoplay loop **controls** playsinline id="hero-video">
+                <video autoplay loop controls playsinline id="hero-video">
                     <source src="https://github.com/alexbadLV/Dabu/blob/main/data/best.mp4?raw=true" type="video/mp4">
                 </video>
                 <div class="hero-content">
@@ -1094,7 +1094,7 @@
 
         <div id="et-content" class="et-content">
             <section id="et-hero" class="hero">
-                <video autoplay loop **controls** playsinline id="hero-video">
+                <video autoplay loop controls playsinline id="hero-video">
                     <source src="https://github.com/alexbadLV/Dabu/blob/main/data/best.mp4?raw=true" type="video/mp4">
                 </video>
                 <div class="hero-content">
@@ -1420,7 +1420,7 @@
 
         <div id="lt-content" class="lt-content">
             <section id="lt-hero" class="hero">
-                <video autoplay loop **controls** playsinline id="hero-video">
+                <video autoplay loop controls playsinline id="hero-video">
                     <source src="https://github.com/alexbadLV/Dabu/blob/main/data/best.mp4?raw=true" type="video/mp4">
                 </video>
                 <div class="hero-content">
@@ -1864,7 +1864,6 @@
                 
                 // Tulkojumi detaļu slēdzim (šeit izmantojam placeholderus, lai JS funkcija varētu pareizi strādāt)
                 const openText = lang === 'lv' ? 'Skatīt Detalizēti' : lang === 'en' ? 'View Details' : lang === 'et' ? 'Vaata täpsemalt' : 'Žiūrėti Detaliau';
-                const closeText = lang === 'lv' ? 'Aizvērt' : lang === 'en' ? 'Close' : lang === 'et' ? 'Sulge' : 'Uždaryti';
                 
                 const suitHeader = lang === 'lv' ? 'Piemērotība:' : lang === 'en' ? 'Suitability:' : lang === 'et' ? 'Sobivus:' : 'Tinkamumas:';
                 const itemsHeader = lang === 'lv' ? 'Ko ņemt līdzi:' : lang === 'en' ? 'What to bring:' : lang === 'et' ? 'Mida Kaasa Võtta:' : 'Ką pasiimti:';
@@ -2060,7 +2059,7 @@
                     tours_intro: 'Meie populaarsemad ekskursioonid on: Ķemeri Soo (soorajad), Gauja Rahvuspark (org/koopad), Rāzna Järve loodusrada, Ranniku luited, Vēršu Soo ja Slītere rajad. Milline neist pakub teile enim huvi?',
                     prices_intro: 'Hinnad sõltuvad kestusest (2-8 tundi) ja grupi tüübist. Põhiline hinnaklass on 15 EUR (lühike jalutuskäik) kuni 75 EUR (terve päeva seiklus). Saadaval on grupi- ja pereallahindlused.',
                     safety_info: 'Järgime rangelt "Jälgi Jätmata" põhimõtet. Kõiki tuure juhivad sertifitseeritud giidid. Ohutus on prioriteet!',
-                    seasonal_info: 'Suvi on ideaalne matkamiseks ja ujumiseks. Sügisel on Gauja värviline. Talvel pakume räätsamatku. Kevadel on aktiivne linnuvaatlus.',
+                    seasonal_info: 'Suvi on ideaalne matkamiseks ja ujumiseks. Sügisel on Gauja värviline. Talvel pakume räätsamatku. Kevadel on aktīvne linnuvaatlus.',
                 },
                 'lt': {
                     title: 'Gamtos Botas (Klauskite!)',
